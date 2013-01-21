@@ -51,13 +51,12 @@ var svgline = svg.append("path")
     
 
 function graphData(data) {
-  x.domain(d3.extent(data.values, function(d) { return d.x; }));
-  y.domain(d3.extent(data.values, function(d) { return d.y; }));
-  xsvg.call(xAxis);
-  ysvg.call(yAxis);
-  
-  svgline
-      .datum(data.values)
+    x.domain(d3.extent(data.values, function(d) { return d.x; }));
+    y.domain(d3.extent(data.values, function(d) { return d.y; }));
+    xsvg.call(xAxis);
+    ysvg.call(yAxis);
+
+    svgline.datum(data.values)
       .attr("d", line);
 };
 
@@ -76,7 +75,6 @@ setInterval(function(){ port.postMessage({type:"get", id:chrome.devtools.inspect
 // attach event listener
 port.onMessage.addListener(function (msg) { 
     if (msg) {
-        oldLength = msg[0].values.length;
         graphData(msg[0]);
     }
 });

@@ -15,21 +15,14 @@ var code   = document.createTextNode('(' + customConsole + ')();');
 script.appendChild(code);
 (document.body || document.head).appendChild(script);
 
-// each page has it's own chartData. 
-// This will eventually support multiple streams, which is why it's like this
-//var chartData = [{key:"Stream0", values:[]}];
-var x = 0;
 
 // event listener from event in injected script
 window.addEventListener("consoleChart", function(e) {
-    //chartData[0].values.push({x:x, y:e.detail});
-    chrome.extension.sendMessage({x:x, y:e.detail});
-    x++;
+    chrome.extension.sendMessage(e.detail);
 }, true);
 
 
 chrome.extension.onMessage.addListener( function(request, sender) {
-    console.log("r:"+request);
     if (request === "reset") {
         chartData = [{key:"Stream0", values:[]}];
         chrome.extension.sendMessage(chartData);
