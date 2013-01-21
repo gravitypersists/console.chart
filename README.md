@@ -4,14 +4,14 @@ console.chart
 A chrome extension that adds a function console.chart() that graphs to a chart into a new Developer Tools Panel. It is a visual representation of some quantity for debugging purposes.
 
 
-For example, this adds 10,000 random numbers to an array and sorts them, 100 times, logging the time it takes to do so.
+For example, this logs the time (in ms) to sort an array 200 times, each time adding 10,000 random elements to the end of it.
 ```javascript
     var array = [];
-    for (var i=0; i<100; i++) {
-        var date = Date.now();
+    for (var i=0; i<200; i++) {
         for (var j=0; j<10000; j++) {
             array.push(Math.floor(Math.random()*10));
         }
+        var date = Date.now();
         array.sort();
         console.chart(Date.now()-date);
     }
@@ -27,4 +27,3 @@ To do:
 - Add grid lines to axis
 - Support for multiple chart lines, so you might be able to do console.chart({"red": 3}, {"blue":5})
 - Add viewfinder for honing in on a specific range (like here: http://nvd3.org/ghpages/lineWithFocus.html )
-
