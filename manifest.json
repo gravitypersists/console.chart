@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "DevTools Charter",
+  "description": "This extension allows you to make simple line charts by calling console.chart()",
+  "version": "1.0",
+  "devtools_page": "default.html",
+  "permissions":["<all_urls>"],
+  "background":{
+      "scripts":["background.js"]
+  },
+  "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+  }]
+
+}

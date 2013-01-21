@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" href="nv.d3.css">
+      <style>
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+
+      .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+      }
+
+      #reset {
+        width: 100px;
+        height: 25px;
+        display:block;
+        margin: 0 auto;
+        font-weight:bold;
+      }
+      
+      .controls { 
+        margin-top:50px;
+        width:100%;
+      }
+      </style>
+  </head>
+  <body>
+      <div id="chart"></div>
+      <div class="controls">
+          <button id="reset" value="reset">Reset Data</button>
+      </div>
+    <script src="ext/d3.min.js"></script>
+    <script src="charter.js"></script>
+  </body>
+</html>
+
