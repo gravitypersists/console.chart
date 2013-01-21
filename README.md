@@ -1,12 +1,11 @@
 console.chart
 =============
 
-A chrome extension that adds a function console.chart() that graphs to a chart in a Developer Tools Panel
+A chrome extension that adds a function console.chart() that graphs to a chart into a new Developer Tools Panel. It is a visual representation of some quantity for debugging purposes.
 
 
-You can try by pasting this into the console, this example adds 10,000 random numbers to an array and sorts them, 100 times, logging the time it takes as it goes.
+For example, this adds 10,000 random numbers to an array and sorts them, 100 times, logging the time it takes to do so.
 ```javascript
-(function() {
     var array = [];
     for (var i=0; i<100; i++) {
         var date = Date.now();
@@ -16,9 +15,9 @@ You can try by pasting this into the console, this example adds 10,000 random nu
         array.sort();
         console.chart(Date.now()-date);
     }
-})();
 ```
-
+It will look something like this (pretty to come):
+![Chart example](https://raw.github.com/gitpullgravity/console.chart/master/imgs/sample.png)
 
 
 Note: It currently has a memory leak, most likely due to the unchecked setInterval in the charter.js file that continues after the devtools panel loses focus. I'm still investigating it.
